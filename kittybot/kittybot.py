@@ -1,10 +1,14 @@
-# kittybot.py
+import os
 
 import requests
+from dotenv import load_dotenv
 from telegram import ReplyKeyboardMarkup
-from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
+from telegram.ext import CommandHandler, Updater
 
-updater = Updater(token='<token>')
+load_dotenv()
+
+token = os.getenv('TOKEN')
+updater = Updater(token=token)
 URL = 'https://api.thecatapi.com/v1/images/search'
 
 
